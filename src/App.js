@@ -1,19 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppLayout from './components/layout/AppLayout';
+import Home from './pages/Home';
 
 function App() {
-  return (
-    <div className="App">
-      <div>
-        <h1>
-          กลับบ้าน 6 โมงเย็น 
-        </h1>
-        <h1>
-          ไม่กลับ คับ
-        </h1>
-      </div>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<AppLayout />}>
+                    <Route index element={<Home />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
