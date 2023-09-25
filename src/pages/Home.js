@@ -1,5 +1,7 @@
 const Home = () => {
-    return <div>This is Blank page</div>;
+    return <div>
+        <i class='bx bxs-home'></i>,
+    </div>;
 };
 
 export default Home;

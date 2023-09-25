@@ -4,53 +4,64 @@
     left: 0;
     height: 100vh;
     width: 320px;
-    background-color: #f3b7b7;
+    background-color: #f3c05b;
+}
+.logo {
+    display: grid;
+    place-items: center;
+    height: 120px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Mochiy Pop P one', sans-serif;
+}
 
-    &__logo {
-        display: grid;
-        place-items: center;
-        height: 120px;
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: 'Mochiy Pop P one', sans-serif;
-    }
+.menu {
+position: relative;
+}
+.item {
+    display: flex;
+    align-items: center;
+    place-content: flex-start;
+    padding: 10px 10px 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+.active {
+   color: #f6c4a3;
+}
 
-    &__menu {
-        position: relative;
+.icon {
+    margin-right: 1rem;
+}
+.i {
+    font-size: 1.75rem;
+}
+.text{
+    color: aliceblue;
+    font-size: 30;
+    padding: 10px 10px 10px;
+} 
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: calc(100% - 50px);
+    border-radius:0px;
+    background-color: #308efe;
+    z-index: -1;
+    transform: translateX(-50%);
+    transition: 0.3s ease-in-out;
+}              
 
-        &__item {
-            display: flex;
-            align-items: center;
-            place-content: flex-start;
-            padding: 1rem 3rem;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #555555;
-            transition: color 0.3s ease-in-out;
-
-            &.active {
-                color: #fff;
-            }
-
-            &__icon {
-                margin-right: 1rem;
-
-                i {
-                    font-size: 1.75rem;
-                }
-            }
-        }
-
-        &__indicator {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: calc(100% - 40px);
-            border-radius: 10px;
-            background-color: #308efe;
-            z-index: -1;
-            transform: translateX(-50%);
-            transition: 0.3s ease-in-out;
-        }
-    }
+.sidebar__topic{
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    padding: 10px 10px 10px 90px;
+    font-weight: bold;
+}
+.menu_list{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 0px 0px 20px 30px;
 }

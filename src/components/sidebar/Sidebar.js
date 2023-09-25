@@ -4,34 +4,16 @@ import './Sidebar.css';
 
 const sidebarNavItems = [
     {
-        display: 'Dashboard',
-        icon: <i className='bx bx-home'></i>,
+        display: 'Home',
+        icon: <i class='bx bxs-home'></i>,
         to: '/',
         section: ''
     },
     {
-        display: 'Getting Started',
+        display: 'Eraser',
         icon: <i className='bx bx-star'></i>,
-        to: '/started',
-        section: 'started'
-    },
-    {
-        display: 'Calendar',
-        icon: <i className='bx bx-calendar'></i>,
-        to: '/calendar',
-        section: 'calendar'
-    },
-    {
-        display: 'User',
-        icon: <i className='bx bx-user'></i>,
-        to: '/user',
-        section: 'user'
-    },
-    {
-        display: 'Orders',
-        icon: <i className='bx bx-receipt'></i>,
-        to: '/order',
-        section: 'order'
+        to: '/Eraser',
+        section: ''
     },
 ]
 
@@ -58,13 +40,13 @@ const Sidebar = () => {
     }, [location]);
 
     return <div className='sidebar'>
-        <div className="sidebar__logo">
-            Animate
+        <div className="sidebar__topic">
+            Photo
         </div>
-        <div ref={sidebarRef} className="sidebar__menu">
+        <div ref={sidebarRef} className="menu">
             <div
                 ref={indicatorRef}
-                className="sidebar__menu__indicator"
+                className="indicator"
                 style={{
                     transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
@@ -72,11 +54,11 @@ const Sidebar = () => {
             {
                 sidebarNavItems.map((item, index) => (
                     <Link to={item.to} key={index}>
-                        <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
-                            <div className="sidebar__menu__item__icon">
+                        <div className={`item ${activeIndex === index ? 'active' : ''}`}>
+                            <div className="icon">
                                 {item.icon}
                             </div>
-                            <div className="sidebar__menu__item__text">
+                            <div className="menu_list">
                                 {item.display}
                             </div>
                         </div>
