@@ -5,13 +5,13 @@ import './Sidebar.css';
 const sidebarNavItems = [
     {
         display: 'Home',
-        icon: <i class='bx bxs-home'></i>,
+        icon: <i class='bx bxs-balloon' />,
         to: '/',
         section: ''
     },
     {
         display: 'Eraser',
-        icon: <i className='bx bx-star'></i>,
+        icon: <i class='bx bxs-balloon' />,
         to: '/Eraser',
         section: ''
     },

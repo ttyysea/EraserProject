@@ -22,17 +22,18 @@ position: relative;
     display: flex;
     align-items: center;
     place-content: flex-start;
-    padding: 10px 10px 10px;
+    padding: 10px 40px 10px;
     font-size: 1.25rem;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
 }
-.active {
+/* .active {
    color: #f6c4a3;
-}
+} */
 
 .icon {
     margin-right: 1rem;
+    size: 30cm;
 }
 .i {
     font-size: 1.75rem;
@@ -63,5 +64,5 @@ position: relative;
 .menu_list{
     color: rgb(0, 0, 0);
     font-size: 20px;
-    padding: 0px 0px 20px 30px;
+    /* padding: 0px 0px 20px 30px; */
 }
