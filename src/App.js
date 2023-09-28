@@ -19,18 +19,19 @@ function App() {
         <div className='App'>
            <Navbar />
            <div>
-                <div class="image-upload">
-                    <label for="file-input">
-                        <i class="fa-solid fa-image"></i>
+                <div className="image-upload">
+                    <label for="file-input" className='button-upload'>
+                        <i className="fa-solid fa-image icon-upload" size="xl"></i>
+                        &nbsp;&nbsp;Upload
                     </label>
                     <input id="file-input" type="file" accept='image/*' onChange={onImageChange} hidden/>
                 </div>
                
-                <div className='imgBox'>
+                <div className='img-display'>
                     
                    { imageURLs.map(imageSrc => (
                     
-                    <img width={500} height={550} src={imageSrc}  />
+                    <img className='' width={500} height={550} src={imageSrc}  />
                     
                     ))}
                 </div>
