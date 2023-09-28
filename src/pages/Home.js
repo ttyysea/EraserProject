@@ -1,35 +1,36 @@
-import React, { useState } from 'react'
-import { MdCloudUpload } from 'react-icons/md'
-//import { AiFillFileImage,MdDete } from 'react-icons/ai'
+import { useState, useEffect } from 'react';
+import '../css/Home.css';
 
-import '../css/Home.css'
 function Home (){
 
-    const [image, setImage] = useState(null)
-    const [fileName, setFileName] =useState("No selected file")
-    return (
-     <main>
-        <button action='' 
-        className='upbox'
-        onClick={() => document.querySelector(".input-field").Click}
-        >
-            <input type='file' name='image/*' hidden 
-            onChange={({target:{files}}) => {
-                files[0] && setFileName(files[0].name)
-                if(files){
-                    setImage(URL.createObjectURL(files[0]))
-                }
-            }}
-            />
+    const [images, setImages] = useState([]);
+    const [imageURLs, setImageURLs] = useState([]);
 
-            {image ?
-            <img scr={image} width={60} height={60} alt={fileName} />
-            :
-            <MdCloudUpload color='#1475cf' size={60} />
-        }
-        </button>
-     </main>   
-    )
+    useEffect(() => {
+        if(images.length < 1) return;
+        const newImageUrls = [];
+        images.forEach(image => newImageUrls.push(URL.createObjectURL(image)))
+        setImageURLs(newImageUrls);
+
+    },[images]);
+
+    function onImageChange(e){
+        setImages([...e.target.files]);
+    }
+
+    return(
+        <div className='upbox'>
+            <input  type='file' multiple accept='image/*' onChange={onImageChange} />
+            { imageURLs.map(imageSrc => (
+                <img width={500} height={550} src={imageSrc}  />
+                ))}
+        </div>
+        
+    );
 
 }
 export default Home;
+
+
+
+

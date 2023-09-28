@@ -1,3 +1,10 @@
-.pages{
-    background-color: aquamarine;
+.upbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #1475cf;
+    height: 300px;
+    width:  450;
+    border-radius: 5px;
 }

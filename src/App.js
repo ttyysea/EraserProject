@@ -1,19 +1,42 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AppLayout from './components/layout/AppLayout';
-import Home from './pages/Home';
-import Eraser from './pages/Eraser';
+import { useState, useEffect } from 'react';
+import Navbar from "./components/Navbar/Navbar"
 
 function App() {
+    const [images, setImages] = useState([]);
+    const [imageURLs, setImageURLs] = useState([]);
+    useEffect(() => {
+        if(images.length < 1) return;
+        const newImageUrls = [];
+        images.forEach(image => newImageUrls.push(URL.createObjectURL(image)))
+        setImageURLs(newImageUrls);
+
+    },[images]);
+    function onImageChange(e){
+        setImages([...e.target.files]);
+    }
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<AppLayout />}>
-                    <Route index element={<Home />} />
-                    <Route path='/Eraser' element={<Eraser />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <div className='App'>
+           <Navbar />
+           <div>
+                <div class="image-upload">
+                    <label for="file-input">
+                        <i class="fa-solid fa-image"></i>
+                    </label>
+                    <input id="file-input" type="file" accept='image/*' onChange={onImageChange} hidden/>
+                </div>
+               
+                <div className='imgBox'>
+                    
+                   { imageURLs.map(imageSrc => (
+                    
+                    <img width={500} height={550} src={imageSrc}  />
+                    
+                    ))}
+                </div>
+                
+           </div>
+        </div>
     );
 }
 
