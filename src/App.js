@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Navbar from "./components/Navbar/Navbar"
 
+
 function App() {
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
@@ -27,11 +28,11 @@ function App() {
                     <input id="file-input" type="file" accept='image/*' onChange={onImageChange} hidden/>
                 </div>
                
-                <div className='img-display'>
+                <div >
                     
                    { imageURLs.map(imageSrc => (
                     
-                    <img className='' width={500} height={550} src={imageSrc}  />
+                    <img className='img-display' src={imageSrc}  />
                     
                     ))}
                 </div>

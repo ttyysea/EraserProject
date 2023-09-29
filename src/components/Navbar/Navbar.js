@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { MenuData } from "./MenuData";
 import "./NavbarStyle.css"
+import { Toolbar } from "../brushPaint/Toolbar";
 
 class Navbar extends Component{
     render(){
@@ -9,6 +10,7 @@ class Navbar extends Component{
                 <h1 className="logo">
                     Photo
                 </h1>
+                <Toolbar />
                 <ul className='nav-menu'>
                     {MenuData.map((item, index)=>{
                         return(

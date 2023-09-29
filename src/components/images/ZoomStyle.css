@@ -1,0 +1,15 @@
+.zoom-image-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+.zoom-image {
+  transition: transform 0.2s ease-in-out;
+}
+.img-display{
+  line-height: 200px;
+  height: 200px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
