@@ -4,6 +4,7 @@ import "./NavbarStyle.css"
 import { Toolbar } from "../brushPaint/Toolbar";
 
 class Navbar extends Component{
+    
     render(){
         return(
             <nav className="NevbarItmes" >

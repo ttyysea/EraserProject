@@ -1,10 +1,13 @@
+import ImageCanvas from '../../pages/ImageCanvas';
+import Navbar from '../Navbar/Navbar';
 import './DrawRectangle.css';
 import {useEffect, useRef, useState} from 'react';
 
 const DrawRectangle = () => {
+    const [brushSize, setBrushSize] = useState(5);
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
-
+    const [lineWidth, setLineWidth] = useState(5);
     const [isDrawing, setIsDrawing] = useState(false);
 
     useEffect(() => {
@@ -15,7 +18,7 @@ const DrawRectangle = () => {
         const context = canvas.getContext("2d");
         context.lineCap = "round";
         context.strokeStyle = "black";
-        context.lineWidth = 5;
+        context.lineWidth = brushSize ;
         contextRef.current = context;
     }, []);
 
@@ -41,13 +44,17 @@ const DrawRectangle = () => {
     };
 
     const stopDrawing = () => {
-        contextRef.current.closePath();
         setIsDrawing(false);
     };
 
     const setToDraw = () => {
         contextRef.current.globalCompositeOperation = 'source-over';
     };
+    
+    const handleBrushSizeChange = (event) => {
+        const newSize = parseInt(event.target.value);
+        setBrushSize(newSize);
+      };
 
     const setToErase = () => {
         contextRef.current.globalCompositeOperation = 'destination-out';
@@ -59,7 +66,7 @@ const DrawRectangle = () => {
         let image = canvasRef.current.toDataURL('image/png');
         link.setAttribute('href', image);
     };
-
+    
     return (
         <div>
             <canvas className="canvas-container"
@@ -67,16 +74,30 @@ const DrawRectangle = () => {
                 onMouseDown={startDrawing}
                 onMouseMove={draw}
                 onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}>
+                onMouseLeave={stopDrawing}><ImageCanvas />
+                
             </canvas>
             <div>
-                <button onClick={setToDraw}>
-                    Draw
-                </button>
+            <button onClick={setToDraw}>
+                {isDrawing ? 'Stop Drawing' : 'Start Drawing'}
+            </button>
+            <label htmlFor="brushSize">Brush Size: {brushSize}</label>
+            <input
+                type="range"
+                id="brushSize"
+                name="brushSize"
+                min="1"
+                max="20" // Adjust the maximum brush size range as needed
+                value={brushSize}
+                onChange={handleBrushSizeChange}
+            />
                 <button onClick={setToErase}>
                     Erase
+                    
                 </button>
+            
                 <a id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
+             
             </div>
         </div>
     )

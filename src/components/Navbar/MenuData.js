@@ -1,20 +1,21 @@
 export const MenuData = [
     {
-        title: "Undo",
+        title: "",
         url: "#",
         cName: "nav-links",
         icon: "fa-solid fa-rotate-left"
     },
     {
-        title: "Redo",
+        title: "",
         url: "#",
         cName: "nav-links",
         icon: "fa-solid fa-rotate-right"
     },
     {
         title: "Save",
-        url: "#",
+        url: "",
         cName: "nav-links",
         icon: "fa-solid fa-download",
+        
     },
 ]
