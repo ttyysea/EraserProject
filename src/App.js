@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Navbar from "./components/Navbar/Navbar"
-
+import DrawRectangle from './components/DrawRectangle/DrawRectangle';
 
 function App() {
     const [images, setImages] = useState([]);
@@ -19,6 +19,7 @@ function App() {
     return (
         <div className='App'>
            <Navbar />
+           <DrawRectangle></DrawRectangle>
            <div>
                 <div className="image-upload">
                     <label for="file-input" className='button-upload'>
