@@ -4,3 +4,61 @@
     border: 2px solid #707070;
     background-color: white;
 }
+.button{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    border-radius:  5px;
+
+}
+.button:hover,
+.button.active {
+    background: rgb(249, 145, 18);
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    color: white;
+}
+
+.buttonEraser{
+    text-decoration: none;
+    color: rgb(28, 28, 28);
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    border-radius:  5px rgb(255, 205, 144);
+    background-color: rgb(255, 205, 144);
+    font-size: 1.2rem;
+
+
+}
+.buttonEraser:hover,
+.buttonEraser.active {
+    background: rgb(249, 145, 18);
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    color: white;
+    size: 20px;
+    
+}
+
+.menuBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0 30px;
+    background-color:#777171;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    height: 65px;
+    border-radius: 13px;
+    position: fixed;
+    object-fit: scale-down;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: .5rem;
+    text-align: center
+}
+
+

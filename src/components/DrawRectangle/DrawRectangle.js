@@ -1,26 +1,26 @@
 import ImageCanvas from '../../pages/ImageCanvas';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import './DrawRectangle.css';
 import {useEffect, useRef, useState} from 'react';
 
 const DrawRectangle = () => {
-    const [brushSize, setBrushSize] = useState(5);
+    const [brushSize, setBrushSize] = useState(50);
+    const [brushColor, setBrushColor] = useState('rgba(255,199,122)');
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
-    const [lineWidth, setLineWidth] = useState(5);
     const [isDrawing, setIsDrawing] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         canvas.width = 500;
         canvas.height = 500;
-
         const context = canvas.getContext("2d");
         context.lineCap = "round";
         context.strokeStyle = "black";
         context.lineWidth = brushSize ;
+        context.strokeStyle = brushColor;
         contextRef.current = context;
-    }, []);
+    }, [brushSize, brushColor]);
 
     const startDrawing = ({nativeEvent}) => {
         const {offsetX, offsetY} = nativeEvent;
@@ -74,29 +74,37 @@ const DrawRectangle = () => {
                 onMouseDown={startDrawing}
                 onMouseMove={draw}
                 onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}><ImageCanvas />
+                onMouseLeave={stopDrawing}>
+                    <ImageCanvas />
                 
             </canvas>
-            <div>
-            <button onClick={setToDraw}>
-                {isDrawing ? 'Stop Drawing' : 'Start Drawing'}
-            </button>
-            <label htmlFor="brushSize">Brush Size: {brushSize}</label>
-            <input
+            <div className='menuBar'>
+                <button className='button' onClick={setToDraw}>
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+            {/* <label htmlFor="brushSize">Brush Size: {brushSize}</label> */}
+            {/* <input color={brushSize}
                 type="range"
                 id="brushSize"
                 name="brushSize"
                 min="1"
-                max="20" // Adjust the maximum brush size range as needed
+                max="100" 
                 value={brushSize}
                 onChange={handleBrushSizeChange}
             />
-                <button onClick={setToErase}>
-                    Erase
-                    
+            <input
+                type="color"
+                value={brushColor}
+                onChange={(e) => setBrushColor(e.target.value)}
+            /> */}
+                <button className='button' onClick={setToErase}>
+                    <i class="fa-solid fa-eraser"></i>
+                </button>
+                <button className='buttonEraser' onClick={setToErase}>
+                    Eraser Object  
                 </button>
             
-                <a id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
+                <a className='button' id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
              
             </div>
         </div>
