@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import './App2';
 function ImageCanvas() {
   const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);

@@ -6,11 +6,14 @@
 }
 .button{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 0.7rem 1rem;
     white-space: nowrap;
     font-size: 1.2rem;
     border-radius:  5px;
+    background-color: #707070;
+    border-radius:  10px;
+
 
 }
 .button:hover,
@@ -18,19 +21,17 @@
     background: rgb(249, 145, 18);
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
-    color: white;
+    color: wheat;
 }
 
 .buttonEraser{
     text-decoration: none;
-    color: rgb(28, 28, 28);
+    color: rgb(249, 145, 18);
     padding: 0.7rem 1rem;
     white-space: nowrap;
-    border-radius:  5px rgb(255, 205, 144);
-    background-color: rgb(255, 205, 144);
-    font-size: 1.2rem;
-
-
+    border-radius:  10px;
+    font-size: 1.2rem; 
+    font-weight: bold;
 }
 .buttonEraser:hover,
 .buttonEraser.active {
@@ -48,10 +49,10 @@
     align-items: center;
     font-size: 1.2rem;
     padding: 0 30px;
-    background-color:#777171;
+    background-color:rgba(60, 60, 60, 0.5);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    width: 80%;
     height: 65px;
+    width: 30%;
     border-radius: 13px;
     position: fixed;
     object-fit: scale-down;
